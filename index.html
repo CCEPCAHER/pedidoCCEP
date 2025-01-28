@@ -13,21 +13,9 @@
     <h2>Carrito de Compras</h2>
     <div id="cart-items">No hay productos añadidos.</div>
   </div>
-
-  <!-- Formulario de Pedido -->
-  <form id="pedidoForm">
-    <label for="cantidad">Cantidad:</label>
-    <input type="number" id="cantidad" name="cantidad" required><br><br>
-    <label for="cliente">Cliente:</label>
-    <input type="text" id="cliente" name="cliente" required><br><br>
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion" required><br><br>
-    <button type="submit">Enviar Pedido</button>
-  </form>
-
+  <button id="submit-order" onclick="submitOrder()">Enviar Pedido</button>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script>
-  
     const sections = {
       "Coca Cola": ["Coca Cola pack 6 2L", "Coca Cola pack 4 2L", "Coca Cola Bipack 2L", "Coca Cola 2L","Coca Cola Bipack 1,25l","Coca Cola 1,25L","Coca Cola P4 Pet500","Coca Cola pet500"],
       "Coca Cola Zero": ["Coca Cola Zero pack 6 2L", "Coca Cola Zero pack 4 2L", "Coca Cola Zero Bipack 2L", "Coca Cola Zero 2L","Coca Cola Zero Bipack 1,25l","Coca Cola Zero 1,25L","Coca Cola Zero P4 Pet500","Coca Cola Zero pet500"],
@@ -175,21 +163,6 @@
     document.getElementById("product-list").innerHTML = Object.entries(sections)
       .map(([section, products]) => createSection(section, products))
       .join('');
-
-    document.getElementById('pedidoForm').addEventListener('submit', async function(event) {
-      event.preventDefault();
-
-      const cantidad = document.getElementById('cantidad').value;
-      const cliente = document.getElementById('cliente').value;
-      const direccion = document.getElementById('direccion').value;
-
-      const pedido = {
-          cantidad: cantidad,
-          cliente: cliente,
-          direccion: direccion
-      };
-
-      try {
-          const response = await fetch('/guardar-pedido', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application[_{{{CITATION{{{_1{](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md)[_{{{CITATION{{{_2{](https://github.com/vmwebmcbo/lagirlvzla/tree/8e311cc89e8d4534b158cc85f124e06ada3ed664/Cart%2Findex.php)
+  </script>
+</body>
+</html>
